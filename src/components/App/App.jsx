@@ -1,4 +1,3 @@
-import React from 'react';
 import {useEffect, useState} from 'react';
 import axios from 'axios'
 import Header from '../Header/Header.jsx'
@@ -6,6 +5,10 @@ import AddItem from '../AddItem/AddItem.jsx';
 import ResetClear from '../ResetClear/ResetClear.jsx';
 import ShoppingItem from '../ShoppingItems/ShoppingItem.jsx';
 import './App.css';
+
+// Importing Form component to App
+import Form from '../Form/Form.jsx';
+
 
 function App() {
 
@@ -29,6 +32,20 @@ function App() {
           });
     } 
 
+        const deleteItems = () => {
+        axios({
+          method: 'DELETE',
+          url: '/shopping'
+        })
+          .then((response) => {
+            fetchList();
+          })
+          .catch(function (error) {
+            console.log('Error on delete:', error);
+          });
+      }
+
+
     useEffect( () => {
         fetchList();
       }, [])
@@ -46,3 +63,6 @@ function App() {
 }
 
 export default App;
+
+
+

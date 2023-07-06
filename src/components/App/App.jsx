@@ -1,7 +1,8 @@
-import React from 'react';
 import {useEffect, useState} from 'react';
-import axios from 'axios';
-import Header from '../Header/Header.jsx';
+import axios from 'axios'
+import Header from '../Header/Header.jsx'
+import ResetClear from '../ResetClear/ResetClear.jsx';
+import ShoppingItem from '../ShoppingItems/ShoppingItem.jsx';
 import './App.css';
 
 // Importing Form component to App
@@ -43,21 +44,37 @@ function App() {
             alert("Error adding grocery item.");
         })
     }
+        const deleteItems = () => {
+        axios({
+          method: 'DELETE',
+          url: '/shopping'
+        })
+          .then((response) => {
+            fetchList();
+          })
+          .catch(function (error) {
+            console.log('Error on delete:', error);
+          });
+      }
+
 
     useEffect( () => {
         fetchList();
       }, [])
 
     return (
-      <div className="App">
-        <Header />
-        <main>
-          <p>Under Construction...</p>
-
-          <Form addNewGroceryItem={addNewGroceryItem}/>
-        </main>
-      </div>
+        <div className="App">
+            <Header />
+            <main>
+            <Form addNewGroceryItem={addNewGroceryItem}/>
+            <ResetClear/> 
+            {/* <ShoppingItem/>  */}
+            </main>
+        </div>
     );
 }
 
 export default App;
+
+
+

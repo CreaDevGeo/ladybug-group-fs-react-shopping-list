@@ -25,14 +25,16 @@ When the page first loads, all the existing items should be displayed with the q
 
 Items should initially appear alphabetically, but as items are marked purchased they should sort to the end of the list.
 
-The `Reset` button should clear the purchased status from all items, allowing the list to be re-used. The `Clear` button should remove all items from the list, deleting them from the database.
+// TODO: Shopping List //
+- [ ] 1. The `Reset` button should clear the purchased status from all items, allowing the list to be re-used. 
+- [ ] 2. **** The `Clear` button should remove all items from the list, deleting them from the database.
 
 #### Hint for Marking as purchased/removing item
 >> If you've set up your components as we have shown, you should have an `Item` Component. That item should have access to every property of the item *object* -- this will be critical to successfully calling a PUT or DELETE route with the id (`/:id`). 
 
 ### Sample Wireframe
 
-![wireframe](wiregit checframe.jpg)
+![wireframe](wireframe.jpg)
 
 ### Tips for Teams
 
@@ -42,7 +44,7 @@ The `Reset` button should clear the purchased status from all items, allowing th
 
 - Plan to break down the UI (user interface) into smaller components. Discussing this upfront as a team is very helpful as you start to discuss tasks.
 
-- Consider the naming for routes while planning to make sure everyone has the same expecations. Note the url in the tasks. 
+- Consider the naming for routes while planning to make sure everyone has the same expectations. Note the url in the tasks. 
 
 - __Don't__ have team members work *only* on client or *only* on server code. Everyone needs to practice working with both sides. One option is to break features out as slices that include both the client and server code. Another is to create separate tasks for client and server code, but plan so that all team members get both a client task and a server task, even if they are for different features.
 

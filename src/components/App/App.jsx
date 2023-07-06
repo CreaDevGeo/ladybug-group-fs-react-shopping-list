@@ -4,6 +4,7 @@ import axios from 'axios'
 import Header from '../Header/Header.jsx'
 import AddItem from '../AddItem/AddItem.jsx';
 import ResetClear from '../ResetClear/ResetClear.jsx';
+import ShoppingItem from '../ShoppingItems/ShoppingItem.jsx';
 import './App.css';
 
 function App() {
@@ -37,7 +38,8 @@ function App() {
             <Header />
             <main>
               <AddItem/>
-              <ResetClear/>  
+              <ResetClear/> 
+              <ShoppingItem/> 
             </main>
         </div>
     );

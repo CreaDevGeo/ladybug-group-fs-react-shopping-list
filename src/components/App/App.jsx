@@ -1,14 +1,14 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios'
 import Header from '../Header/Header.jsx'
+import AddItem from '../AddItem/AddItem.jsx';
+import ResetClear from '../ResetClear/ResetClear.jsx';
+import ShoppingItem from '../ShoppingItems/ShoppingItem.jsx';
 import './App.css';
 
-<<<<<<< HEAD
-=======
 // Importing Form component to App
 import Form from '../Form/Form.jsx';
 
->>>>>>> 855d6b8935c7503978bd45b53bff474ed5f782ff
 
 function App() {
 
@@ -54,8 +54,9 @@ function App() {
         <div className="App">
             <Header />
             <main>
-                <p>Under Construction...</p>
-                <button onClick={deleteItems}>Clear</button>
+              <AddItem/>
+              <ResetClear/> 
+              <ShoppingItem/> 
             </main>
         </div>
     );

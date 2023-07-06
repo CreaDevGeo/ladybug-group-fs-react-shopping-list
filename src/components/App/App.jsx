@@ -1,7 +1,7 @@
 import React from 'react';
 import {useEffect, useState} from 'react';
-import axios from 'axios'
-import Header from '../Header/Header.jsx'
+import axios from 'axios';
+import Header from '../Header/Header.jsx';
 import './App.css';
 
 // Importing Form component to App
@@ -30,6 +30,20 @@ function App() {
           });
     } 
 
+    const addNewGroceryItem = (newGroceryItem) => {
+        axios({
+            method: 'POST',
+            url: '/shopping',
+            data: newGroceryItem
+        }).then((response) => {
+            console.log("Grocery item sent! Response is:", response);
+            fetchList();
+        }).catch((error) => {
+            console.log("Error adding grocery item. Error is:", error);
+            alert("Error adding grocery item.");
+        })
+    }
+
     useEffect( () => {
         fetchList();
       }, [])
@@ -40,7 +54,7 @@ function App() {
         <main>
           <p>Under Construction...</p>
 
-          <Form />
+          <Form addNewGroceryItem={addNewGroceryItem}/>
         </main>
       </div>
     );

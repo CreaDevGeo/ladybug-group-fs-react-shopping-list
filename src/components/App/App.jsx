@@ -2,6 +2,8 @@ import React from 'react';
 import {useEffect, useState} from 'react';
 import axios from 'axios'
 import Header from '../Header/Header.jsx'
+import AddItem from '../AddItem/AddItem.jsx';
+import ResetClear from '../ResetClear/ResetClear.jsx';
 import './App.css';
 
 function App() {
@@ -34,7 +36,8 @@ function App() {
         <div className="App">
             <Header />
             <main>
-                <p>Under Construction...</p>
+              <AddItem/>
+              <ResetClear/>  
             </main>
         </div>
     );

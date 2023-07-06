@@ -32,7 +32,7 @@ The `Reset` button should clear the purchased status from all items, allowing th
 
 ### Sample Wireframe
 
-![wireframe](wireframe.jpg)
+![wireframe](wiregit checframe.jpg)
 
 ### Tips for Teams
 

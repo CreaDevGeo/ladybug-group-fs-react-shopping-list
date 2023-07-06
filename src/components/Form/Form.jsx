@@ -1,9 +1,9 @@
-// Importing Use State for input field hooks
+// Importing Use State for input field states
 import { useState } from "react";
 
 // Form component functionality
 function Form() {
-  /* Hooks for form input field elements:
+  /* State hooks for form input field elements:
     Item (Grocery item), Quantity, and Unit
 */
   const [newItem, setNewItem] = useState("");
@@ -11,8 +11,16 @@ function Form() {
   const [newItemUnit, setNewItemUnit] = useState("");
 
   // Function for handling save button
-  function handleSaveButton() {
-    console.log("Save button clicked!");
+  function handleSaveButton(event) {
+    
+    // Preventing default submit behavior
+    event.preventDefault();
+    
+    // Logging
+    console.log("\nSave button clicked!");
+    console.log("newItem is:", newItem);
+    console.log("newItemQuantity is:", newItemQuantity);
+    console.log("newItemUnit is:", newItemUnit);
   }
 
   return (
@@ -38,7 +46,7 @@ function Form() {
           value={newItemUnit}
         />
 
-        <button onClick={handleSaveButton}>Save</button>
+        <button type="submit" onClick={handleSaveButton}>Save</button>
       </form>
     </>
   );

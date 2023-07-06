@@ -3,6 +3,9 @@ import React from 'react';
 import Header from '../Header/Header.jsx'
 import './App.css';
 
+// Importing Form component to App
+import Form from '../Form/Form.jsx';
+
 
 function App() {
     return (

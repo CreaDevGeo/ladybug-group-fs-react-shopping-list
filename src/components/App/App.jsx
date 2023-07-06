@@ -1,12 +1,14 @@
-import React from 'react';
 import {useEffect, useState} from 'react';
 import axios from 'axios'
 import Header from '../Header/Header.jsx'
 import './App.css';
 
+<<<<<<< HEAD
+=======
 // Importing Form component to App
 import Form from '../Form/Form.jsx';
 
+>>>>>>> 855d6b8935c7503978bd45b53bff474ed5f782ff
 
 function App() {
 
@@ -30,20 +32,36 @@ function App() {
           });
     } 
 
+        const deleteItems = () => {
+        axios({
+          method: 'DELETE',
+          url: '/shopping'
+        })
+          .then((response) => {
+            fetchList();
+          })
+          .catch(function (error) {
+            console.log('Error on delete:', error);
+          });
+      }
+
+
     useEffect( () => {
         fetchList();
       }, [])
 
     return (
-      <div className="App">
-        <Header />
-        <main>
-          <p>Under Construction...</p>
-
-          <Form />
-        </main>
-      </div>
+        <div className="App">
+            <Header />
+            <main>
+                <p>Under Construction...</p>
+                <button onClick={deleteItems}>Clear</button>
+            </main>
+        </div>
     );
 }
 
 export default App;
+
+
+

@@ -1,6 +1,9 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios'
 import Header from '../Header/Header.jsx'
+import AddItem from '../AddItem/AddItem.jsx';
+import ResetClear from '../ResetClear/ResetClear.jsx';
+import ShoppingItem from '../ShoppingItems/ShoppingItem.jsx';
 import './App.css';
 
 // Importing Form component to App
@@ -51,8 +54,9 @@ function App() {
         <div className="App">
             <Header />
             <main>
-                <p>Under Construction...</p>
-                <button onClick={deleteItems}>Clear</button>
+              <AddItem/>
+              <ResetClear/> 
+              <ShoppingItem/> 
             </main>
         </div>
     );

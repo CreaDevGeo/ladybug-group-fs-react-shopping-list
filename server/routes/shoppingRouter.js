@@ -16,6 +16,25 @@ router.get('/', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+    const shoppingItem = req.body
+    const sqlText = `INSERT INTO list (name, quantity, unit, purchased) 
+            VALUES ($1, $2, $3, $4)`
+    
+    pool.query(sqlText, [
+        shoppingItem.name, 
+        shoppingItem.quantity, 
+        shoppingItem.unit, 
+        shoppingItem.purchased
+    ]).then(result => {
+        console.log(`Added new shoppingItem to the DB`, shoppingItem);
+        res.sendStatus(201);
+    }).catch(error => {
+        console.log(`Error making DB query ${sqlText}`, error);
+    })
+
+
+})
 router.delete('/', (req, res) => {
     const sqlText = `DELETE FROM list;`;
     pool.query(sqlText)

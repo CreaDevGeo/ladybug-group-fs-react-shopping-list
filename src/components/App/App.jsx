@@ -4,6 +4,10 @@ import axios from 'axios'
 import Header from '../Header/Header.jsx'
 import './App.css';
 
+// Importing Form component to App
+import Form from '../Form/Form.jsx';
+
+
 function App() {
 
     const [shoppingList, setShoppingList] = useState([])
@@ -31,12 +35,14 @@ function App() {
       }, [])
 
     return (
-        <div className="App">
-            <Header />
-            <main>
-                <p>Under Construction...</p>
-            </main>
-        </div>
+      <div className="App">
+        <Header />
+        <main>
+          <p>Under Construction...</p>
+
+          <Form />
+        </main>
+      </div>
     );
 }
 

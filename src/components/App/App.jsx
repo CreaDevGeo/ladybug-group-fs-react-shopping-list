@@ -1,7 +1,6 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios'
 import Header from '../Header/Header.jsx'
-import AddItem from '../AddItem/AddItem.jsx';
 import ResetClear from '../ResetClear/ResetClear.jsx';
 import ShoppingItem from '../ShoppingItems/ShoppingItem.jsx';
 import './App.css';
@@ -58,6 +57,9 @@ function App() {
               <ResetClear/>
               <button onClick={deleteItems}>Clear</button> 
               <ShoppingItem/> 
+            <Form/>
+            <ResetClear/> 
+            {/* <ShoppingItem/>  */}
             </main>
         </div>
     );

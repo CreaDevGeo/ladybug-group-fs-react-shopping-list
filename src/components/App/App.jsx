@@ -3,6 +3,12 @@ import axios from 'axios'
 import Header from '../Header/Header.jsx'
 import './App.css';
 
+<<<<<<< HEAD
+=======
+// Importing Form component to App
+import Form from '../Form/Form.jsx';
+
+>>>>>>> 855d6b8935c7503978bd45b53bff474ed5f782ff
 
 function App() {
 

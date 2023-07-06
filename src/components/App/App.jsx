@@ -55,7 +55,8 @@ function App() {
             <Header />
             <main>
               <AddItem/>
-              <ResetClear/> 
+              <ResetClear/>
+              <button onClick={deleteItems}>Clear</button> 
               <ShoppingItem/> 
             </main>
         </div>

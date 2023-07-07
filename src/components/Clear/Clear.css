@@ -1,0 +1,7 @@
+button.clear-button {
+    padding: 5px 10px;
+    font-size:16px;
+    border-radius: 10px;
+    border: 2px solid #8C0303;
+    font-weight:bold;
+}

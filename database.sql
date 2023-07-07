@@ -12,5 +12,5 @@ CREATE TABLE list (
 	);
 
 INSERT INTO "list" ("name", "quantity", "unit")
-VALUES ('apples', '1.5', 'lbs'), ('orange soda', '1', 'ltr'), ('bread', '2', 'loaf');
+VALUES ('Apples', '5.0', 'lbs'), ('Orange Soda', '1', 'liter'), ('Bread', '2', 'loafs'), ('Sliced Almonds', '3.5', 'cups');
 

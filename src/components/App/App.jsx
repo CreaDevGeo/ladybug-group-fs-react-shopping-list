@@ -1,67 +1,67 @@
-import {useEffect, useState} from 'react';
-import axios from 'axios'
-import Header from '../Header/Header.jsx'
-import ResetClear from '../ResetClear/ResetClear.jsx';
-import ShoppingItem from '../ShoppingItems/ShoppingItem.jsx';
-import './App.css';
-
-// Importing Form component to App
-import Form from '../Form/Form.jsx';
-
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Header from "../Header/Header.jsx";
+import Reset from "../Reset/Reset.jsx";
+import Clear from "../Clear/Clear.jsx";
+import Form from "../Form/Form.jsx";
+import ShoppingList from "../ShoppingList/ShoppingList";
+import "./App.css";
 
 function App() {
+  const [shoppingList, setShoppingList] = useState([]);
 
-    const [shoppingList, setShoppingList] = useState([])
+  const fetchList = () => {
+    axios({
+      method: "GET",
+      url: "/shopping"
+    })
+      .then((response) => {
+        console.log("Entire response:", response);
+        console.log("Just the data:", response.data);
 
-    const fetchList = () => {
-        axios({
-            method: 'GET',
-            url: '/shopping'
-        })
-        .then( (response) => {
-            console.log('Entire response:', response);
-            // The actual array comes from the data attribute on the response
-            console.log('Just the data:', response.data);
-    
-            // Set data into component state
-            setShoppingList(response.data);
-          })
-          .catch(function (error) {
-            console.log('Error on get:', error);
-          });
-    } 
+        setShoppingList(response.data);
+      })
+      .catch((error) => {
+        console.log("Error on GET request:", error);
+      });
+  };
 
-        const deleteItems = () => {
-        axios({
-          method: 'DELETE',
-          url: '/shopping'
-        })
-          .then((response) => {
-            fetchList();
-          })
-          .catch(function (error) {
-            console.log('Error on delete:', error);
-          });
-      }
+  const clearShoppingList = (ids) => {
+    return axios.delete("/shopping", { data: { ids } });
+  };
 
+  const handleClear = () => {
+    const shoppingIds = shoppingList.map((shoppingItem) => shoppingItem.id);
+    clearShoppingList(shoppingIds)
+      .then((response) => {
+        console.log("Items deleted:", response.data);
+        fetchList(); // Fetch the updated shopping list after clearing
+      })
+      .catch((error) => {
+        console.error("Error deleting items:", error);
+      });
+  };
 
-    useEffect( () => {
-        fetchList();
-      }, [])
+  useEffect(() => {
+    fetchList();
+  }, []);
 
-    return (
-        <div className="App">
-            <Header />
-            <main>
-            <Form/>
-            <ResetClear/> 
-            {/* <ShoppingItem/>  */}
-            </main>
-        </div>
-    );
+  return (
+    <div className="App">
+      <Header />
+      <main>
+        <section className="add-item-container">
+        <Form fetchList={fetchList} />
+        </section>
+        <section className="shopping-list-btn-container">
+        <h1 className="sl-heading">Shopping List</h1>
+        <Reset shoppingList={shoppingList} /> &nbsp;
+        <Clear handleClear={handleClear} />
+        </section>
+        <ShoppingList shoppingList={shoppingList} />
+      </main>
+    </div>
+  );
 }
 
 export default App;
-
-
-

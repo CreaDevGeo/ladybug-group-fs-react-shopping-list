@@ -1,0 +1,7 @@
+button.reset-button {
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 2px solid #021F59;
+  font-weight: bold;
+}

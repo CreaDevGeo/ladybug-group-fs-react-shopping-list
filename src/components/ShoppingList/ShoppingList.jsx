@@ -22,7 +22,9 @@ function ShoppingList({ shoppingList }) {
           key={shoppingItem.id}
           newItem={shoppingItem}
           handlePurchased={handlePurchased}
+          
         />
+        
       ))}
     </div>
   );

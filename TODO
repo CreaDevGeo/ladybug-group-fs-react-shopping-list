@@ -2,6 +2,19 @@
 
 Isn't it just the worst when you come back from grocery shopping only to realize you forgot the most important thing! We're going to make a simple shopping list app to solve that problem. 
 
+
+
+## To-Do's
+[x] - Request and display each grocery item from database to DOM in individual components
+[x] - Create a form component that adds a grocery item to the database with each submit, that then re-renders the updated DOM's grocery list
+[ ] - Have shopping list controls with two buttons; 
+    [ ] - a clear that resets all items to purchased false (not purchased) and updates on database
+    [ ] - a reset button that empties out all items from database grocery list
+[ ] - Conditional rendering of grocery items on DOM
+    [ ] - If not purchased, show buy and remove buttons with blue background color
+    [ ] - If purchased, show purchased text replacing buttons and showing green background
+
+
 ## Technologies
 
 - *S*QL

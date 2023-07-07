@@ -1,5 +1,13 @@
 .banner-header {
-  background-color: silver;
-  text-align: center;
-  padding: 0.25em;
+  display: flex;
+  height:210px;
+  background-image: url(/public/images/grocery_header_bg.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Handlee', cursive;
+  font-size: xx-large;
+  justify-content: center;
+  align-items: center;
+  color: #021F59;
+  
 }

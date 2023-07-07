@@ -1,56 +1,86 @@
-// Importing Use State for input field states
 import { useState } from "react";
+import axios from "axios";
+import '../Form/Form.css';
 
-// Form component functionality
-function Form() {
-  /* State hooks for form input field elements:
-    Item (Grocery item), Quantity, and Unit
-*/
+function Form({ fetchList }) {
   const [newItem, setNewItem] = useState("");
   const [newItemQuantity, setNewItemQuantity] = useState("");
   const [newItemUnit, setNewItemUnit] = useState("");
 
-  // Function for handling save button
   function handleSaveButton(event) {
-    
-    // Preventing default submit behavior
     event.preventDefault();
+
+    const newItemData = {
+      name: newItem,
+      quantity: newItemQuantity,
+      unit: newItemUnit,
+      purchased: false
+    };
     
-    // Logging
-    console.log("\nSave button clicked!");
-    console.log("newItem is:", newItem);
-    console.log("newItemQuantity is:", newItemQuantity);
-    console.log("newItemUnit is:", newItemUnit);
+
+    axios
+      .post("/shopping", newItemData)
+      .then(() => {
+        // Call the fetchList function from the App component to fetch the updated shopping list after the form submission
+        fetchList();
+
+        // Clear the form fields
+        setNewItem("");
+        setNewItemQuantity("");
+        setNewItemUnit("");
+      })
+      .catch((error) => {
+        console.error("Error in POST request:", error);
+      });
   }
 
   return (
     <>
-      {/* Form element */}
+    <h1 className="add-item-heading">➕ Add an Item</h1>
+    <div className="form-container">
       <form>
+        <div className="item-container">
         <label>Item:</label>
-        <input 
-        placeholder="Enter shopping item" 
-        onChange={(event) => {setNewItem(event.target.value)}}
-        value={newItem} />
+        <input
+          placeholder="Name of the item"
+          onChange={(event) => {
+            setNewItem(event.target.value);
+          }}
+          value={newItem}
+        />
+        </div>
 
+        <div className="quantity-container">
         <label>Quantity:</label>
-        <input 
-        placeholder="Enter quantity" 
-        onChange={(event) => {setNewItemQuantity(event.target.value)}}
-        value={newItemQuantity} />
-        
+        <input
+          placeholder="Enter item quantity"
+          onChange={(event) => {
+            setNewItemQuantity(event.target.value);
+          }}
+          value={newItemQuantity}
+        />
+        </div>
+
+        <div className="unit-container">
         <label>Unit:</label>
         <input
-          placeholder="Enter item unit; 5lbs, 1 loaf..."
-          onChange={(event) => {setNewItemUnit(event.target.value)}}
+          placeholder="Item unit: bunch, cup, gallon, lb, liter, loaf..."
+          onChange={(event) => {
+            setNewItemUnit(event.target.value);
+          }}
           value={newItemUnit}
         />
+        </div>
 
-        <button type="submit" onClick={handleSaveButton}>Save</button>
+        <div className="submit-button-container">
+        <button className="submit-button" type="submit" onClick={handleSaveButton}>
+          💾 Save
+        </button>
+        </div>
       </form>
+      </div>
     </>
   );
 }
 
-// Exporting Form component
 export default Form;
